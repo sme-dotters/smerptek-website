@@ -1,12 +1,14 @@
 'use client';
 
 import { Calendar } from 'lucide-react';
+import { trackCalendlyClick } from '@/lib/analytics/events';
 
 interface CalendlyButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   text?: string;
   className?: string;
+  location?: string;
 }
 
 export function CalendlyButton({
@@ -14,6 +16,7 @@ export function CalendlyButton({
   size = 'md',
   text = 'Schedule a Demo',
   className = '',
+  location = 'unknown',
 }: CalendlyButtonProps) {
   // Replace with actual Calendly link when available
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/smerptek';
@@ -31,6 +34,9 @@ export function CalendlyButton({
   };
 
   const openCalendly = () => {
+    // Track the click
+    trackCalendlyClick(location);
+
     // In production, this would open Calendly popup
     // For now, open in new tab
     window.open(calendlyUrl, '_blank', 'noopener,noreferrer');

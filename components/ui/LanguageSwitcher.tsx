@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Globe } from 'lucide-react';
+import { trackLanguageSwitch } from '@/lib/analytics/events';
 
 const languages = [
   { code: 'en', name: 'English', nativeName: 'English' },
@@ -13,7 +14,12 @@ export function LanguageSwitcher() {
   const [locale, setLocale] = useState('en');
 
   const switchLanguage = (newLocale: string) => {
+    const oldLocale = locale;
     setLocale(newLocale);
+
+    // Track language switch
+    trackLanguageSwitch(oldLocale, newLocale);
+
     // In future, this will actually switch language
     // For now, just update state
     console.log(`Language switched to: ${newLocale}`);

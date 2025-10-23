@@ -53,6 +53,7 @@ export default function HomePage() {
                       text="Schedule a Demo"
                       variant="primary"
                       size="lg"
+                      location="homepage-hero"
                     />
                     <Link href="/contact">
                       <button className="group px-10 py-5 bg-white/10 hover:bg-white/20 text-white rounded-xl font-semibold border border-white/20 hover:border-white/40 transition-all duration-300 flex items-center gap-2 hover:scale-105">

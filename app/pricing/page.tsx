@@ -1,16 +1,24 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Check, ArrowRight, DollarSign } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
 import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
-import { CurrencySwitcher, type Currency, convertPrice, formatPrice } from '@/components/ui/CurrencySwitcher';
+import { CurrencySwitcher } from '@/components/ui/CurrencySwitcher';
+import { type Currency, convertPrice, formatPrice, fetchExchangeRates } from '@/lib/currency/api';
 
 export default function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(false);
   const [currency, setCurrency] = useState<Currency>('AED');
+
+  // Fetch live exchange rates on mount
+  useEffect(() => {
+    fetchExchangeRates().catch((error) => {
+      console.error('Failed to fetch exchange rates:', error);
+    });
+  }, []);
 
   const plans = [
     {

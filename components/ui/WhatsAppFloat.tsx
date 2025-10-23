@@ -2,6 +2,7 @@
 
 import { MessageCircle } from 'lucide-react';
 import { useState } from 'react';
+import { trackWhatsAppClick } from '@/lib/analytics/events';
 
 export function WhatsAppFloat() {
   const [isVisible, setIsVisible] = useState(true);
@@ -14,6 +15,10 @@ export function WhatsAppFloat() {
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
 
+  const handleClick = () => {
+    trackWhatsAppClick('float');
+  };
+
   if (!isVisible) return null;
 
   return (
@@ -23,6 +28,7 @@ export function WhatsAppFloat() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleClick}
         className="group flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 p-4"
         aria-label="Chat with us on WhatsApp"
       >

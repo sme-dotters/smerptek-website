@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
+import PlausibleProvider from 'next-plausible';
 import '../styles/globals.css';
 import { JsonLd } from '@/components/schema/JsonLd';
 import { getOrganizationSchema } from '@/lib/schema/organization';
@@ -77,6 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
+        <PlausibleProvider domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || 'smerptek.com'} />
         <JsonLd data={getOrganizationSchema()} />
       </head>
       <body className="font-body bg-dark-500 text-white antialiased overflow-x-hidden">

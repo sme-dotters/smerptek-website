@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { DollarSign, ChevronDown } from 'lucide-react';
+import { trackCurrencySwitch } from '@/lib/analytics/events';
 
 export type Currency = 'AED' | 'SAR' | 'QAR' | 'KWD' | 'OMR' | 'BHD';
 
@@ -36,8 +37,13 @@ export function CurrencySwitcher({
   const currentCurrency = currencies.find((c) => c.code === currency);
 
   const handleSelect = (newCurrency: Currency) => {
+    const oldCurrency = currency;
     setCurrency(newCurrency);
     setIsOpen(false);
+
+    // Track currency switch
+    trackCurrencySwitch(oldCurrency, newCurrency);
+
     if (onCurrencyChange) {
       onCurrencyChange(newCurrency);
     }
