@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { LogoMark } from '../brand/logo';
 import Image from 'next/image';
+import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 
 const navLinks = [
   { href: '/solutions', label: 'Solutions' },
@@ -68,8 +69,9 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex">
+          {/* Desktop CTA & Language Switcher */}
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher />
             <Link href="/contact">
               <button className="relative px-8 py-3 font-bold rounded-xl overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-purple-pink" />
@@ -106,6 +108,9 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <div className="py-3">
+              <LanguageSwitcher />
+            </div>
             <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
               <button className="w-full relative px-8 py-4 font-bold rounded-xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-purple-pink" />

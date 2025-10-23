@@ -4,6 +4,7 @@ import { ArrowRight, Zap, Shield, Rocket, Target, Users, TrendingUp, CheckCircle
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
 import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
+import { CalendlyButton } from '@/components/ui/CalendlyButton';
 
 export const metadata: Metadata = {
   title: 'SMERP TEK | Modern Business Solutions for Startups & SMEs',
@@ -46,11 +47,16 @@ export default function HomePage() {
                     Cutting-edge Apps, Automations, and AI Agents that transform how businesses operate
                   </p>
 
-                  {/* CTA Button - Single Clean Design */}
-                  <div className="flex justify-center items-center mb-16">
+                  {/* CTA Buttons - Dual Action */}
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16">
+                    <CalendlyButton
+                      text="Schedule a Demo"
+                      variant="primary"
+                      size="lg"
+                    />
                     <Link href="/contact">
-                      <button className="group px-10 py-5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105">
-                        Explore Our Solutions
+                      <button className="group px-10 py-5 bg-white/10 hover:bg-white/20 text-white rounded-xl font-semibold border border-white/20 hover:border-white/40 transition-all duration-300 flex items-center gap-2 hover:scale-105">
+                        Explore Solutions
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                       </button>
                     </Link>

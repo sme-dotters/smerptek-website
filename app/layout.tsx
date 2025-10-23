@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import '../styles/globals.css';
 import { JsonLd } from '@/components/schema/JsonLd';
 import { getOrganizationSchema } from '@/lib/schema/organization';
+import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -78,7 +79,10 @@ export default function RootLayout({
       <head>
         <JsonLd data={getOrganizationSchema()} />
       </head>
-      <body className="font-body bg-dark-500 text-white antialiased overflow-x-hidden">{children}</body>
+      <body className="font-body bg-dark-500 text-white antialiased overflow-x-hidden">
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   );
 }

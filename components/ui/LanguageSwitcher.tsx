@@ -1,7 +1,6 @@
 'use client';
 
-import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
+import { useState } from 'react';
 import { Globe } from 'lucide-react';
 
 const languages = [
@@ -10,16 +9,14 @@ const languages = [
 ];
 
 export function LanguageSwitcher() {
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
+  // For now, default to English until full i18n is set up
+  const [locale, setLocale] = useState('en');
 
   const switchLanguage = (newLocale: string) => {
-    // Remove current locale from pathname
-    const pathnameWithoutLocale = pathname.replace(/^\/(en|ar)/, '');
-
-    // Navigate to the same page with new locale
-    router.push(`/${newLocale}${pathnameWithoutLocale}`);
+    setLocale(newLocale);
+    // In future, this will actually switch language
+    // For now, just update state
+    console.log(`Language switched to: ${newLocale}`);
   };
 
   const currentLanguage = languages.find((lang) => lang.code === locale);

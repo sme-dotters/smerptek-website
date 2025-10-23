@@ -6,9 +6,11 @@ import { Check, ArrowRight, DollarSign } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
 import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
+import { CurrencySwitcher, type Currency, convertPrice, formatPrice } from '@/components/ui/CurrencySwitcher';
 
 export default function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(false);
+  const [currency, setCurrency] = useState<Currency>('AED');
 
   const plans = [
     {
@@ -82,28 +84,37 @@ export default function PricingPage() {
                   and email support. Scale up (or down) anytime.
                 </p>
 
-                {/* Toggle */}
-                <div className="flex items-center justify-center gap-4">
-                  <span className={`text-sm font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
-                    Monthly
-                  </span>
-                  <button
-                    onClick={() => setIsAnnual(!isAnnual)}
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                      isAnnual ? 'bg-gradient-to-r from-purple-500 to-blue-500' : 'bg-white/10'
-                    }`}
-                    role="switch"
-                    aria-checked={isAnnual}
-                  >
-                    <span
-                      className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                        isAnnual ? 'translate-x-6' : 'translate-x-1'
+                {/* Toggle & Currency Switcher */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
+                  <div className="flex items-center gap-4">
+                    <span className={`text-sm font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
+                      Monthly
+                    </span>
+                    <button
+                      onClick={() => setIsAnnual(!isAnnual)}
+                      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                        isAnnual ? 'bg-gradient-to-r from-purple-500 to-blue-500' : 'bg-white/10'
                       }`}
-                    />
-                  </button>
-                  <span className={`text-sm font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
-                    Annual <span className="text-green-400">(save 15%)</span>
-                  </span>
+                      role="switch"
+                      aria-checked={isAnnual}
+                    >
+                      <span
+                        className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                          isAnnual ? 'translate-x-6' : 'translate-x-1'
+                        }`}
+                      />
+                    </button>
+                    <span className={`text-sm font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
+                      Annual <span className="text-green-400">(save 15%)</span>
+                    </span>
+                  </div>
+
+                  <div className="h-8 w-px bg-white/20 hidden sm:block" />
+
+                  <CurrencySwitcher
+                    selectedCurrency={currency}
+                    onCurrencyChange={setCurrency}
+                  />
                 </div>
               </div>
             </section>
@@ -137,13 +148,22 @@ export default function PricingPage() {
                             <>
                               <div className="flex items-baseline gap-2 mb-2">
                                 <span className="text-4xl font-bold text-white">
-                                  AED {isAnnual ? plan.priceAnnual : plan.priceMonthly}
+                                  {formatPrice(
+                                    convertPrice(
+                                      isAnnual ? plan.priceAnnual! : plan.priceMonthly,
+                                      currency
+                                    ),
+                                    currency
+                                  )}
                                 </span>
                                 <span className="text-gray-400">/month</span>
                               </div>
                               {isAnnual && (
                                 <p className="text-xs text-gray-400">
-                                  Billed annually (AED {plan.priceAnnual! * 12})
+                                  Billed annually ({formatPrice(
+                                    convertPrice(plan.priceAnnual! * 12, currency),
+                                    currency
+                                  )})
                                 </p>
                               )}
                             </>
