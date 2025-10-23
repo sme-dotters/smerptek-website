@@ -38,13 +38,15 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group relative">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-purple-pink rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity" />
+              {/* Animated glowing effect */}
+              <div className="absolute inset-0 bg-gradient-purple-pink rounded-full blur-xl opacity-40 animate-glow-pulse" />
+              <div className="absolute inset-0 bg-gradient-blue-purple rounded-full blur-2xl opacity-30 animate-glow-pulse" style={{ animationDelay: '0.5s' }} />
               <Image
                 src="/logo.png"
                 alt="SMERP TEK"
                 width={50}
                 height={50}
-                className="relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                className="relative z-10 transform group-hover:scale-110 transition-transform duration-300 drop-shadow-2xl"
               />
             </div>
             <span className="font-display font-bold text-2xl text-white">

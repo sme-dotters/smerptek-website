@@ -26,32 +26,17 @@ export default function HomePage() {
           <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-neon-cyan rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }} />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            {/* Logo Display */}
-            <div className="mb-12 animate-scale-in flex justify-center">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-purple-pink rounded-full blur-2xl opacity-50 group-hover:opacity-75 transition-opacity animate-glow-pulse" />
-                <Image
-                  src="/logo.png"
-                  alt="SMERP TEK"
-                  width={200}
-                  height={200}
-                  className="relative z-10 drop-shadow-2xl transform group-hover:scale-110 transition-transform duration-500"
-                  priority
-                />
-              </div>
-            </div>
-
             {/* Main Headline - Huge & Bold */}
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-extrabold mb-8 animate-slide-up">
-              <span className="block text-white mb-4">Digital</span>
+              <span className="block text-white mb-4">Transform Your</span>
               <span className="block bg-gradient-luxury bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
-                Luxury
+                Business
               </span>
             </h1>
 
-            {/* Tagline - Minimal Text */}
-            <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-12 animate-fade-in max-w-3xl mx-auto font-light">
-              Where <span className="text-neon-purple font-semibold">innovation</span> meets <span className="text-neon-pink font-semibold">elegance</span>
+            {/* Tagline - Professional & Targeted */}
+            <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-12 animate-fade-in max-w-4xl mx-auto font-light">
+              Enterprise-grade <span className="text-neon-purple font-semibold">AI automation</span> and <span className="text-neon-pink font-semibold">digital transformation</span> solutions designed for ambitious startups and growing SMEs
             </p>
 
             {/* CTA Buttons - Large & Glowing */}
@@ -60,15 +45,15 @@ export default function HomePage() {
                 <button className="group relative px-12 py-6 text-lg font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-luxury">
                   <div className="absolute inset-0 bg-gradient-purple-pink animate-gradient bg-[length:200%_200%]" />
                   <span className="relative z-10 text-white flex items-center gap-3">
-                    Experience Now
+                    Schedule Consultation
                     <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                   </span>
                 </button>
               </Link>
 
-              <Link href="#showcase">
+              <Link href="#solutions">
                 <button className="px-12 py-6 text-lg font-bold rounded-2xl border-2 border-white/20 backdrop-blur-xl hover:border-neon-purple hover:shadow-glow-purple transition-all duration-300 hover:scale-105">
-                  <span className="bg-gradient-luxury bg-clip-text text-transparent">Explore</span>
+                  <span className="bg-gradient-luxury bg-clip-text text-transparent">Our Solutions</span>
                 </button>
               </Link>
             </div>
@@ -88,9 +73,9 @@ export default function HomePage() {
             {/* Section Title */}
             <div className="text-center mb-20">
               <h2 className="text-5xl sm:text-6xl md:text-7xl font-display font-bold mb-6">
-                <span className="bg-gradient-blue-purple bg-clip-text text-transparent">Powered by AI</span>
+                <span className="bg-gradient-blue-purple bg-clip-text text-transparent">Why Choose SMERP TEK</span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">Intelligent automation for the modern enterprise</p>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">Enterprise-level capabilities tailored for startups and SMEs. We deliver transformation that scales with your ambition.</p>
             </div>
 
             {/* Visual Grid - Cards with Icons & Gradients */}
@@ -119,13 +104,56 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* PRODUCTS - Visual First */}
-        <section className="py-32 relative bg-gradient-mesh">
+        {/* CONSULTANCY SERVICES - Professional Offerings */}
+        <section className="py-32 relative">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
               <h2 className="text-5xl sm:text-6xl md:text-7xl font-display font-bold mb-6">
-                <span className="bg-gradient-pink-orange bg-clip-text text-transparent">Our Solutions</span>
+                <span className="bg-gradient-luxury bg-clip-text text-transparent">Consultancy Services</span>
               </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">Strategic guidance and hands-on implementation from industry experts</p>
+            </div>
+
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="group relative p-8 rounded-3xl backdrop-blur-xl border border-white/10 hover:border-neon-purple/50 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-purple-pink opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity" />
+                <div className="relative z-10">
+                  <div className="text-5xl mb-6">🎯</div>
+                  <h3 className="text-2xl font-display font-bold text-white mb-4">Strategy & Planning</h3>
+                  <p className="text-gray-400 leading-relaxed">Digital transformation roadmaps aligned with your business objectives and market position</p>
+                </div>
+              </div>
+
+              <div className="group relative p-8 rounded-3xl backdrop-blur-xl border border-white/10 hover:border-neon-cyan/50 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-blue-cyan opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity" />
+                <div className="relative z-10">
+                  <div className="text-5xl mb-6">⚡</div>
+                  <h3 className="text-2xl font-display font-bold text-white mb-4">Implementation</h3>
+                  <p className="text-gray-400 leading-relaxed">Agile delivery with continuous integration, ensuring rapid value realization and minimal disruption</p>
+                </div>
+              </div>
+
+              <div className="group relative p-8 rounded-3xl backdrop-blur-xl border border-white/10 hover:border-neon-pink/50 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-pink-orange opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity" />
+                <div className="relative z-10">
+                  <div className="text-5xl mb-6">🚀</div>
+                  <h3 className="text-2xl font-display font-bold text-white mb-4">Growth & Scale</h3>
+                  <p className="text-gray-400 leading-relaxed">Continuous optimization and scaling strategies that grow with your business needs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PRODUCTS - Visual First */}
+        <section id="solutions" className="py-32 relative bg-gradient-mesh">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-20">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-display font-bold mb-6">
+                <span className="bg-gradient-pink-orange bg-clip-text text-transparent">Complete Digital Suite</span>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">From education to analytics, we provide end-to-end solutions that power modern businesses</p>
             </div>
 
             {/* Large Product Cards */}
@@ -163,6 +191,11 @@ export default function HomePage() {
         {/* STATS - Visual Numbers */}
         <section className="py-32 relative">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
+                <span className="bg-gradient-luxury bg-clip-text text-transparent">Proven Track Record</span>
+              </h2>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-5xl mx-auto">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center group cursor-pointer">
@@ -178,25 +211,88 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* INDUSTRY EXPERTISE */}
+        <section className="py-32 relative bg-gradient-mesh">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-20">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-display font-bold mb-6">
+                <span className="bg-gradient-blue-purple bg-clip-text text-transparent">Industry Expertise</span>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">Deep sector knowledge across high-growth industries</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <div className="group relative p-6 rounded-2xl backdrop-blur-xl border border-white/10 hover:border-neon-purple/50 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center space-x-4">
+                  <div className="text-4xl">🏥</div>
+                  <h3 className="text-xl font-display font-bold text-white">Healthcare</h3>
+                </div>
+              </div>
+
+              <div className="group relative p-6 rounded-2xl backdrop-blur-xl border border-white/10 hover:border-neon-cyan/50 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center space-x-4">
+                  <div className="text-4xl">🏦</div>
+                  <h3 className="text-xl font-display font-bold text-white">Financial Services</h3>
+                </div>
+              </div>
+
+              <div className="group relative p-6 rounded-2xl backdrop-blur-xl border border-white/10 hover:border-neon-pink/50 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center space-x-4">
+                  <div className="text-4xl">🛒</div>
+                  <h3 className="text-xl font-display font-bold text-white">E-Commerce</h3>
+                </div>
+              </div>
+
+              <div className="group relative p-6 rounded-2xl backdrop-blur-xl border border-white/10 hover:border-neon-orange/50 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center space-x-4">
+                  <div className="text-4xl">📚</div>
+                  <h3 className="text-xl font-display font-bold text-white">Education</h3>
+                </div>
+              </div>
+
+              <div className="group relative p-6 rounded-2xl backdrop-blur-xl border border-white/10 hover:border-neon-purple/50 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center space-x-4">
+                  <div className="text-4xl">🏭</div>
+                  <h3 className="text-xl font-display font-bold text-white">Manufacturing</h3>
+                </div>
+              </div>
+
+              <div className="group relative p-6 rounded-2xl backdrop-blur-xl border border-white/10 hover:border-neon-cyan/50 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center space-x-4">
+                  <div className="text-4xl">🚀</div>
+                  <h3 className="text-xl font-display font-bold text-white">Technology</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FINAL CTA - Full Width Gradient */}
         <section className="py-32 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-neon-purple via-neon-pink to-neon-orange opacity-20" />
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8">
-              Ready to Transform?
+              Ready to Scale?
             </h2>
-            <p className="text-2xl text-gray-300 mb-12 font-light">
-              Let's create something extraordinary
+            <p className="text-2xl text-gray-300 mb-12 font-light max-w-3xl mx-auto">
+              Join forward-thinking startups and SMEs transforming their operations with enterprise-grade technology
             </p>
-            <Link href="/contact">
-              <button className="group relative px-16 py-8 text-2xl font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:scale-110 shadow-luxury">
-                <div className="absolute inset-0 bg-gradient-luxury animate-gradient bg-[length:200%_200%]" />
-                <span className="relative z-10 text-white flex items-center gap-4">
-                  Start Your Journey
-                  <Sparkles className="group-hover:rotate-180 transition-transform duration-500" />
-                </span>
-              </button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Link href="/contact">
+                <button className="group relative px-16 py-8 text-2xl font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:scale-110 shadow-luxury">
+                  <div className="absolute inset-0 bg-gradient-luxury animate-gradient bg-[length:200%_200%]" />
+                  <span className="relative z-10 text-white flex items-center gap-4">
+                    Book Free Consultation
+                    <ArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
+                  </span>
+                </button>
+              </Link>
+              <Link href="/case-studies">
+                <button className="px-16 py-8 text-2xl font-bold rounded-2xl border-2 border-white/20 backdrop-blur-xl hover:border-neon-purple hover:shadow-glow-purple transition-all duration-300 hover:scale-105">
+                  <span className="bg-gradient-luxury bg-clip-text text-transparent">View Case Studies</span>
+                </button>
+              </Link>
+            </div>
           </div>
         </section>
       </main>
@@ -209,57 +305,61 @@ export default function HomePage() {
 // Data
 const features = [
   {
-    icon: Zap,
-    title: 'Lightning Fast',
-    gradient: 'from-yellow-400 to-orange-500',
-  },
-  {
-    icon: Shield,
-    title: 'Ultra Secure',
-    gradient: 'from-green-400 to-cyan-500',
-  },
-  {
     icon: Rocket,
-    title: 'Scalable',
+    title: 'Rapid Deployment',
     gradient: 'from-purple-400 to-pink-500',
   },
   {
     icon: Sparkles,
-    title: 'AI-Powered',
+    title: 'AI-Driven Insights',
     gradient: 'from-blue-400 to-purple-500',
+  },
+  {
+    icon: Shield,
+    title: 'Enterprise Security',
+    gradient: 'from-green-400 to-cyan-500',
+  },
+  {
+    icon: Zap,
+    title: 'Cost Efficient',
+    gradient: 'from-yellow-400 to-orange-500',
   },
 ];
 
 const products = [
   {
-    name: 'SMERP EDU',
-    href: '/products/smerp-edu',
+    name: 'Digital Transformation',
+    href: '/solutions/transformation',
     icon: Sparkles,
     gradient: 'from-purple-500 to-pink-500',
+    description: 'End-to-end modernization for legacy systems and processes',
   },
   {
-    name: 'SMERPs Crew',
-    href: '/products/smerps-crew',
+    name: 'AI Automation',
+    href: '/solutions/automation',
     icon: Zap,
     gradient: 'from-blue-500 to-cyan-500',
+    description: 'Intelligent workflows that scale with your business',
   },
   {
-    name: 'SMERP Automate',
-    href: '/products/smerp-automate',
+    name: 'Cloud Solutions',
+    href: '/solutions/cloud',
     icon: Rocket,
     gradient: 'from-pink-500 to-orange-500',
+    description: 'Secure, scalable infrastructure for modern enterprises',
   },
   {
-    name: 'SMERPs Analytics',
-    href: '/products/smerps-analytics',
+    name: 'Analytics & Insights',
+    href: '/solutions/analytics',
     icon: Shield,
     gradient: 'from-cyan-500 to-blue-500',
+    description: 'Data-driven decision making for competitive advantage',
   },
 ];
 
 const stats = [
-  { value: '60%', label: 'Faster' },
-  { value: '24/7', label: 'Available' },
-  { value: '100%', label: 'Secure' },
-  { value: '∞', label: 'Scalable' },
+  { value: '95%', label: 'Client Satisfaction' },
+  { value: '3x', label: 'ROI Average' },
+  { value: '24/7', label: 'Support' },
+  { value: '50+', label: 'Success Stories' },
 ];
