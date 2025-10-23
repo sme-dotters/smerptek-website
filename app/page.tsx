@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Rocket, Target, Users, TrendingUp, CheckCircle, Globe, Code, BarChart3, Cpu } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
+import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
 
 export const metadata: Metadata = {
   title: 'SMERP TEK | Modern Business Solutions for Startups & SMEs',
@@ -12,192 +13,187 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Navbar />
+      <div className="relative">
+        {/* Faded Animated Background */}
+        <div className="opacity-30">
+          <AnimatedBackground />
+        </div>
 
-      <main className="relative bg-dark-500">
-        {/* HERO - Clean & Modern */}
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
-          {/* Subtle Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-          </div>
+        <div className="relative z-10">
+          <Navbar />
 
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-5xl mx-auto text-center">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
-                <Zap className="w-4 h-4 text-purple-400" />
-                <span className="text-sm text-gray-300">Modernized Business Solutions</span>
-              </div>
-
-              {/* Main Headline - Clean & Bold */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-tight">
-                <span className="block text-white mb-2">The Next Generation</span>
-                <span className="block bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                  Business Platform
-                </span>
-              </h1>
-
-              {/* Tagline - Clean & Professional */}
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Cutting-edge Apps, Automations, and AI Agents that transform how businesses operate
-              </p>
-
-              {/* CTA Buttons - Clean Design */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <Link href="/contact">
-                  <button className="group px-8 py-4 bg-white text-dark-500 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 flex items-center gap-2">
-                    Explore Products
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </Link>
-
-                <Link href="#demo">
-                  <button className="px-8 py-4 bg-white/5 text-white rounded-lg font-semibold border border-white/10 hover:bg-white/10 transition-all duration-200 backdrop-blur-sm flex items-center gap-2">
-                    <Zap className="w-4 h-4" />
-                    Try Live Demo
-                  </button>
-                </Link>
-              </div>
-
-              {/* Feature Tags */}
-              <div className="flex flex-wrap gap-3 justify-center items-center text-sm">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                  <Code className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-300">Cloud Native</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                  <Cpu className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-300">AI Powered</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                  <TrendingUp className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-300">Automated</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                  <Zap className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-300">Lightning Fast</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* WHY CHOOSE US - Clean & Professional */}
-        <section id="showcase" className="py-24 relative bg-dark-400/50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Title */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 text-white">
-                Why Choose SMERP TEK
-              </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">Built for startups and SMEs who want to compete with the big players</p>
-            </div>
-
-            {/* Features Grid - Clean Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="group relative p-6 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300"
-                >
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
-                    <feature.icon className="w-6 h-6 text-purple-400" />
+          <main className="relative">
+            {/* HERO - Beautiful & Modern */}
+            <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-5xl mx-auto text-center">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+                    <Zap className="w-4 h-4 text-purple-400" />
+                    <span className="text-sm text-gray-300">Modernized Business Solutions</span>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    {feature.title}
-                  </h3>
+                  {/* Main Headline - Beautiful & Bold */}
+                  <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-tight">
+                    <span className="block text-white mb-2">The Next Generation</span>
+                    <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
+                      Business Solutions
+                    </span>
+                  </h1>
 
-                  {/* Description */}
-                  <p className="text-sm text-gray-400 leading-relaxed">
-                    {feature.description}
+                  {/* Tagline - Clean & Professional */}
+                  <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Cutting-edge Apps, Automations, and AI Agents that transform how businesses operate
                   </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* SERVICES - Clean & Professional */}
-        <section className="py-24 relative">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 text-white">
-                How We Help You Grow
-              </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">From strategy to execution, we're with you every step of the way</p>
-            </div>
+                  {/* CTA Button - Single Clean Design */}
+                  <div className="flex justify-center items-center mb-16">
+                    <Link href="/contact">
+                      <button className="group px-10 py-5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105">
+                        Explore Our Solutions
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </Link>
+                  </div>
 
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="p-8 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6">
-                  <Target className="w-6 h-6 text-blue-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Strategy & Planning</h3>
-                <p className="text-gray-400 leading-relaxed">Clear roadmaps that align technology with your business goals</p>
-              </div>
-
-              <div className="p-8 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-6">
-                  <Code className="w-6 h-6 text-purple-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Implementation</h3>
-                <p className="text-gray-400 leading-relaxed">Fast, reliable delivery that gets you up and running quickly</p>
-              </div>
-
-              <div className="p-8 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center mb-6">
-                  <TrendingUp className="w-6 h-6 text-green-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Growth & Scale</h3>
-                <p className="text-gray-400 leading-relaxed">Solutions that adapt and grow as your business expands</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SOLUTIONS - Clean Product Cards */}
-        <section id="solutions" className="py-24 relative bg-dark-400/50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 text-white">
-                Complete Solution Suite
-              </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">Everything you need to modernize and scale your business</p>
-            </div>
-
-            {/* Product Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {products.map((product, index) => (
-                <Link key={index} href={product.href}>
-                  <div className="group p-8 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                        <product.icon className="w-6 h-6 text-purple-400" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
-                          {product.name}
-                        </h3>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-3">
-                          {product.description}
-                        </p>
-                        <div className="flex items-center text-sm text-purple-400 group-hover:gap-2 transition-all">
-                          <span>Learn more</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
+                  {/* Feature Tags - Beautiful Pills */}
+                  <div className="flex flex-wrap gap-3 justify-center items-center text-sm">
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 backdrop-blur-sm hover:scale-105 transition-transform duration-200">
+                      <Code className="w-4 h-4 text-purple-400" />
+                      <span className="text-gray-200">Cloud Native</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 backdrop-blur-sm hover:scale-105 transition-transform duration-200">
+                      <Cpu className="w-4 h-4 text-blue-400" />
+                      <span className="text-gray-200">AI Powered</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-green-500/10 border border-cyan-500/20 backdrop-blur-sm hover:scale-105 transition-transform duration-200">
+                      <TrendingUp className="w-4 h-4 text-cyan-400" />
+                      <span className="text-gray-200">Automated</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 backdrop-blur-sm hover:scale-105 transition-transform duration-200">
+                      <Zap className="w-4 h-4 text-yellow-400" />
+                      <span className="text-gray-200">Lightning Fast</span>
                     </div>
                   </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+                </div>
+              </div>
+            </section>
+
+            {/* WHY CHOOSE US - Beautiful Cards */}
+            <section id="showcase" className="py-24 relative">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Section Title */}
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 text-white">
+                    Why Choose SMERP TEK
+                  </h2>
+                  <p className="text-lg text-gray-400 max-w-2xl mx-auto">Built for startups and SMEs who want to compete with the big players</p>
+                </div>
+
+                {/* Features Grid - Beautiful Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                  {features.map((feature, index) => (
+                    <div
+                      key={index}
+                      className="group relative p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 hover:-translate-y-1"
+                    >
+                      {/* Icon */}
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <feature.icon className="w-6 h-6 text-purple-400" />
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-lg font-semibold text-white mb-2">
+                        {feature.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-sm text-gray-400 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* SERVICES - Beautiful Cards */}
+            <section className="py-24 relative bg-gradient-to-b from-transparent to-purple-500/5">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 text-white">
+                    How We Help You Grow
+                  </h2>
+                  <p className="text-lg text-gray-400 max-w-2xl mx-auto">From strategy to execution, we're with you every step of the way</p>
+                </div>
+
+                {/* Services Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                  <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/30 to-cyan-500/30 flex items-center justify-center mb-6">
+                      <Target className="w-7 h-7 text-blue-300" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">Strategy & Planning</h3>
+                    <p className="text-gray-300 leading-relaxed">Clear roadmaps that align technology with your business goals</p>
+                  </div>
+
+                  <div className="p-8 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 hover:-translate-y-1">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center mb-6">
+                      <Code className="w-7 h-7 text-purple-300" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">Implementation</h3>
+                    <p className="text-gray-300 leading-relaxed">Fast, reliable delivery that gets you up and running quickly</p>
+                  </div>
+
+                  <div className="p-8 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 hover:border-green-500/50 hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300 hover:-translate-y-1">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/30 to-emerald-500/30 flex items-center justify-center mb-6">
+                      <TrendingUp className="w-7 h-7 text-green-300" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">Growth & Scale</h3>
+                    <p className="text-gray-300 leading-relaxed">Solutions that adapt and grow as your business expands</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SOLUTIONS - Beautiful Product Cards */}
+            <section id="solutions" className="py-24 relative">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 text-white">
+                    Complete Solution Suite
+                  </h2>
+                  <p className="text-lg text-gray-400 max-w-2xl mx-auto">Everything you need to modernize and scale your business</p>
+                </div>
+
+                {/* Product Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                  {products.map((product, index) => (
+                    <Link key={index} href={product.href}>
+                      <div className="group p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 cursor-pointer hover:-translate-y-1">
+                        <div className="flex items-start gap-4">
+                          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <product.icon className="w-7 h-7 text-purple-400" />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                              {product.name}
+                            </h3>
+                            <p className="text-gray-300 text-sm leading-relaxed mb-3">
+                              {product.description}
+                            </p>
+                            <div className="flex items-center text-sm text-purple-400 group-hover:gap-2 transition-all">
+                              <span>Learn more</span>
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </section>
 
         {/* STATS - Clean Numbers */}
         <section className="py-24 relative">
@@ -291,10 +287,12 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
-      </main>
+            </section>
+          </main>
 
-      <Footer />
+          <Footer />
+        </div>
+      </div>
     </>
   );
 }
