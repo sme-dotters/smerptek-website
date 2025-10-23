@@ -5,7 +5,10 @@
     "contactUs": "Contact Us",
     "learnMore": "Learn More",
     "getStarted": "Get Started",
-    "requestDemo": "Request Demo"
+    "requestDemo": "Request Demo",
+    "scheduleDemo": "Schedule a Demo",
+    "exploreSolutions": "Explore Solutions",
+    "getStartedFree": "Get Started Free"
   },
   "nav": {
     "home": "Home",
@@ -16,6 +19,119 @@
     "resources": "Resources",
     "contact": "Contact",
     "blog": "Blog"
+  },
+  "homepage": {
+    "hero": {
+      "badge": "Modernized Business Solutions",
+      "headlinePart1": "The Next Generation",
+      "headlinePart2": "Business Solutions",
+      "tagline": "Cutting-edge Apps, Automations, and AI Agents that transform how businesses operate",
+      "featureTags": {
+        "cloudNative": "Cloud Native",
+        "aiPowered": "AI Powered",
+        "automated": "Automated",
+        "lightningFast": "Lightning Fast"
+      }
+    },
+    "whyChooseUs": {
+      "title": "Why Choose SMERP TEK",
+      "description": "Built for startups and SMEs who want to compete with the big players",
+      "features": {
+        "fastImplementation": {
+          "title": "Fast Implementation",
+          "description": "Get up and running in weeks, not months. Our solutions are designed for quick deployment."
+        },
+        "aiPowered": {
+          "title": "AI-Powered",
+          "description": "Leverage intelligent automation to handle repetitive tasks and make smarter decisions."
+        },
+        "secureReliable": {
+          "title": "Secure & Reliable",
+          "description": "Built with security at the core. Your data stays protected with industry-leading standards."
+        },
+        "scalesWithYou": {
+          "title": "Scales With You",
+          "description": "Start small and grow big. Our platform adapts to your business needs at every stage."
+        }
+      }
+    },
+    "services": {
+      "title": "How We Help You Grow",
+      "description": "From strategy to execution, we're with you every step of the way",
+      "cards": {
+        "strategy": {
+          "title": "Strategy & Planning",
+          "description": "Clear roadmaps that align technology with your business goals"
+        },
+        "implementation": {
+          "title": "Implementation",
+          "description": "Fast, reliable delivery that gets you up and running quickly"
+        },
+        "growth": {
+          "title": "Growth & Scale",
+          "description": "Solutions that adapt and grow as your business expands"
+        }
+      }
+    },
+    "solutions": {
+      "title": "Complete Solution Suite",
+      "description": "Everything you need to modernize and scale your business",
+      "products": {
+        "automation": {
+          "name": "Business Automation",
+          "description": "Automate repetitive tasks and workflows to save time and reduce errors"
+        },
+        "aiAgents": {
+          "name": "AI Agents",
+          "description": "Intelligent assistants that handle customer support, data entry, and more"
+        },
+        "cloudApps": {
+          "name": "Cloud Apps",
+          "description": "Custom applications built for your unique business needs"
+        },
+        "analytics": {
+          "name": "Data Analytics",
+          "description": "Turn your data into actionable insights with powerful analytics tools"
+        }
+      }
+    },
+    "stats": {
+      "title": "Trusted by Growing Businesses",
+      "metrics": {
+        "satisfaction": {
+          "value": "95%",
+          "label": "Client Satisfaction"
+        },
+        "roi": {
+          "value": "3x",
+          "label": "ROI Average"
+        },
+        "support": {
+          "value": "24/7",
+          "label": "Support"
+        },
+        "stories": {
+          "value": "50+",
+          "label": "Success Stories"
+        }
+      }
+    },
+    "industries": {
+      "title": "Industries We Serve",
+      "description": "Specialized solutions for diverse business sectors",
+      "sectors": {
+        "healthcare": "Healthcare",
+        "finance": "Finance",
+        "retail": "Retail",
+        "education": "Education",
+        "manufacturing": "Manufacturing",
+        "technology": "Technology"
+      }
+    },
+    "finalCta": {
+      "title": "Ready to Transform Your Business?",
+      "description": "Join startups and SMEs who are scaling faster with modern technology solutions"
+    }
   },
   "products": {
     "edu": {
@@ -40,6 +156,8 @@
     }
   },
   "footer": {
+    "tagline": "Clarity. By design.",
+    "companyDescription": "Empowering startups and SMEs across the UAE and GCC with AI-driven digital transformation solutions.",
     "products": "Products",
     "company": "Company",
     "legal": "Legal",
@@ -50,6 +168,23 @@
     "dpa": "Data Processing Addendum",
     "security": "Security",
     "accessibility": "Accessibility",
-    "copyright": "© 2025 SMERP TEK. All rights reserved."
+    "copyright": "© 2025 SMERP TEK. All rights reserved.",
+    "solutions": {
+      "title": "Solutions",
+      "overview": "Services Overview",
+      "digitalTransformation": "Digital Transformation",
+      "systemIntegration": "System Integration",
+      "aiAutomation": "AI Automation"
+    },
+    "company_links": {
+      "about": "About Us",
+      "contact": "Contact",
+      "pricing": "Pricing"
+    },
+    "resources_links": {
+      "blog": "Blog",
+      "guides": "Guides & Checklists",
+      "templates": "Templates"
+    }
   }
 }
