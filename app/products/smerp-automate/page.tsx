@@ -1,11 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { TrendingUp, CheckCircle2 } from 'lucide-react';
+import { Rocket, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { ProductHero } from '@/components/sections/product-hero';
+import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
 
 export const metadata: Metadata = {
   title: 'SMERP Automate | Pre-Built Workflow Automation',
@@ -49,95 +47,98 @@ export default function SmerpAutomatePage() {
 
   return (
     <>
-      <Navbar />
-      <main className="pt-24 pb-20">
-        <ProductHero
-          icon={TrendingUp}
-          name="SMERP Automate"
-          tagline="Automate work, not people"
-          description="SMERP Automate provides 50+ pre-built workflows that eliminate repetitive tasks—from quote-to-invoice flows to employee onboarding sequences. Deploy in minutes, customize as you grow."
-        />
+      <div className="relative">
+        <div className="opacity-30">
+          <AnimatedBackground />
+        </div>
 
-        <section className="py-20 lg:py-32">
-          <div className="container-custom">
-            <h2 className="text-h1 font-bold text-text-primary text-center mb-12">Popular Flows</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {flows.map((flow, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="text-h4">{flow.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-text-secondary mb-4">{flow.description}</p>
-                    <div className="bg-success/10 rounded px-3 py-2">
-                      <p className="text-xs font-semibold text-success">
-                        Time saved: {flow.timeSaved}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-bg-secondary">
-          <div className="container-custom">
-            <h2 className="text-h1 font-bold text-text-primary text-center mb-12">
-              Three steps to automation
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {['Choose a template', 'Customize workflow', 'Activate & monitor'].map((step, i) => (
-                <div key={i} className="text-center">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-text-inverse font-bold text-xl mx-auto mb-4">
-                    {i + 1}
+        <div className="relative z-10">
+          <Navbar />
+          <main className="pt-24 pb-20">
+            {/* Hero */}
+            <section className="py-20">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto text-center">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500/20 to-orange-500/20 flex items-center justify-center mx-auto mb-8">
+                    <Rocket className="w-10 h-10 text-pink-400" />
                   </div>
-                  <p className="font-semibold text-text-primary">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight">
+                    SMERP <span className="bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">Automate</span>
+                  </h1>
+                  <p className="text-xl sm:text-2xl text-gray-400 mb-4">Automate work, not people</p>
+                  <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    SMERP Automate provides 50+ pre-built workflows that eliminate repetitive tasks—from quote-to-invoice flows to employee onboarding sequences. Deploy in minutes, customize as you grow.
+                  </p>
 
-        <section className="py-20 lg:py-32">
-          <div className="container-custom text-center">
-            <h2 className="text-h1 font-bold text-text-primary mb-6">Pricing</h2>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {[
-                { name: 'Starter', workflows: '10', tasks: '1,000', price: '300' },
-                { name: 'Growth', workflows: '50', tasks: '10,000', price: '800' },
-                { name: 'Business', workflows: 'Unlimited', tasks: '100,000', price: '2,000' },
-              ].map((plan, i) => (
-                <Card key={i}>
-                  <CardHeader>
-                    <CardTitle>{plan.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-4">
-                      <span className="text-3xl font-bold text-text-primary">AED {plan.price}</span>
-                      <span className="text-text-secondary">/month</span>
+                  <Link href="/contact">
+                    <button className="group px-10 py-5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105 mx-auto">
+                      Get Started
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* Popular Flows */}
+            <section className="py-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white text-center mb-16">Popular Flows</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                  {flows.map((flow, index) => (
+                    <div key={index} className="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-pink-500/50 hover:shadow-xl hover:shadow-pink-500/20 transition-all duration-300 hover:-translate-y-1">
+                      <h3 className="text-xl font-semibold text-white mb-3">{flow.name}</h3>
+                      <p className="text-sm text-gray-300 mb-4 leading-relaxed">{flow.description}</p>
+                      <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl px-4 py-3">
+                        <p className="text-xs font-semibold text-green-400">
+                          Time saved: {flow.timeSaved}
+                        </p>
+                      </div>
                     </div>
-                    <ul className="space-y-2 text-sm text-text-secondary">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-success" />
-                        {plan.workflows} active workflows
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-success" />
-                        {plan.tasks} tasks/month
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="mt-12">
-              <Link href="/contact"><Button size="lg">Try Free for 14 Days</Button></Link>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Three Steps */}
+            <section className="py-24 bg-gradient-to-b from-transparent to-pink-500/5">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white text-center mb-16">
+                  Three steps to automation
+                </h2>
+                <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                  {['Choose a template', 'Customize workflow', 'Activate & monitor'].map((step, i) => (
+                    <div key={i} className="text-center p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-pink-500/50 transition-all duration-300">
+                      <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6">
+                        {i + 1}
+                      </div>
+                      <p className="font-semibold text-white text-lg">{step}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Pricing */}
+            <section className="py-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto text-center p-12 rounded-2xl bg-gradient-to-br from-pink-500/10 to-orange-500/10 border border-white/10">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">Simple Pricing</h2>
+                  <p className="text-xl text-white mb-4"><span className="font-bold">AED 800/month</span> per workflow (up to 10 workflows)</p>
+                  <p className="text-gray-300 mb-8">Unlimited executions • Custom integrations • Priority support</p>
+                  <Link href="/contact">
+                    <button className="group px-10 py-5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105 mx-auto">
+                      Start Free Trial
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </main>
+          <Footer />
+        </div>
+      </div>
     </>
   );
 }

@@ -1,11 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { BarChart3, CheckCircle2, TrendingUp, AlertCircle, Lightbulb } from 'lucide-react';
+import { BarChart3, CheckCircle2, TrendingUp, AlertCircle, Lightbulb, ArrowRight } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { ProductHero } from '@/components/sections/product-hero';
+import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
 
 export const metadata: Metadata = {
   title: 'SMERPs Analytics | Autonomous Business Intelligence',
@@ -47,103 +45,109 @@ export default function SmerpsAnalyticsPage() {
 
   return (
     <>
-      <Navbar />
-      <main className="pt-24 pb-20">
-        <ProductHero
-          icon={BarChart3}
-          name="SMERPs Analytics"
-          tagline="Insights that drive action"
-          description="SMERPs Analytics connects your tools, builds dashboards automatically, flags anomalies, and recommends next actions—so you spend less time in spreadsheets and more time making decisions."
-        />
+      <div className="relative">
+        <div className="opacity-30">
+          <AnimatedBackground />
+        </div>
 
-        <section className="py-20 lg:py-32">
-          <div className="container-custom">
-            <h2 className="text-h1 font-bold text-text-primary text-center mb-12">Core Capabilities</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {capabilities.map((capability, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center mb-3">
-                      <capability.icon className="w-6 h-6 text-success" />
-                    </div>
-                    <CardTitle className="text-h3">{capability.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-text-secondary mb-4">{capability.description}</p>
-                    <ul className="space-y-1">
-                      {capability.examples.map((example, i) => (
-                        <li key={i} className="text-sm text-text-secondary flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                          {example}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <div className="relative z-10">
+          <Navbar />
+          <main className="pt-24 pb-20">
+            {/* Hero */}
+            <section className="py-20">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto text-center">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mx-auto mb-8">
+                    <BarChart3 className="w-10 h-10 text-green-400" />
+                  </div>
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight">
+                    SMERPs <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">Analytics</span>
+                  </h1>
+                  <p className="text-xl sm:text-2xl text-gray-400 mb-4">Insights that drive action</p>
+                  <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    SMERPs Analytics connects your tools, builds dashboards automatically, flags anomalies, and recommends next actions—so you spend less time in spreadsheets and more time making decisions.
+                  </p>
 
-        <section className="py-20 bg-bg-secondary">
-          <div className="container-custom">
-            <h2 className="text-h1 font-bold text-text-primary text-center mb-12">Use Cases</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {[
-                { role: 'Founders', use: 'Morning brief with revenue, burn rate, runway, and top priorities' },
-                { role: 'Finance', use: 'Cash flow forecasts, P&L variance analysis, expense anomaly alerts' },
-                { role: 'Sales', use: 'Pipeline health, conversion rates by stage, rep performance, at-risk deals' },
-                { role: 'Marketing', use: 'Campaign ROI, channel performance, funnel drop-off analysis' },
-                { role: 'Operations', use: 'Project timelines, resource utilization, bottleneck detection' },
-              ].map((useCase, i) => (
-                <div key={i} className="bg-bg-surface rounded-lg p-6">
-                  <p className="font-bold text-primary mb-2">For {useCase.role}</p>
-                  <p className="text-sm text-text-secondary">{useCase.use}</p>
+                  <Link href="/contact">
+                    <button className="group px-10 py-5 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105 mx-auto">
+                      Request Demo
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </Link>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+              </div>
+            </section>
 
-        <section className="py-20 lg:py-32">
-          <div className="container-custom text-center">
-            <h2 className="text-h1 font-bold text-text-primary mb-6">Pricing</h2>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {[
-                { name: 'Starter', sources: '3', dashboards: '5', price: '500' },
-                { name: 'Growth', sources: '10', dashboards: '20', price: '1,200', popular: true },
-                { name: 'Business', sources: 'Unlimited', dashboards: 'Unlimited', price: '3,000' },
-              ].map((plan, i) => (
-                <Card key={i} className={plan.popular ? 'border-2 border-primary' : ''}>
-                  <CardHeader>
-                    <CardTitle>{plan.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-4">
-                      <span className="text-3xl font-bold text-text-primary">AED {plan.price}</span>
-                      <span className="text-text-secondary">/month</span>
+            {/* Core Capabilities */}
+            <section className="py-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white text-center mb-16">Core Capabilities</h2>
+                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                  {capabilities.map((capability, index) => (
+                    <div key={index} className="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-green-500/50 hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-6">
+                        <capability.icon className="w-7 h-7 text-green-400" />
+                      </div>
+                      <h3 className="text-2xl font-semibold text-white mb-4">{capability.title}</h3>
+                      <p className="text-gray-300 mb-4 leading-relaxed">{capability.description}</p>
+                      <ul className="space-y-2">
+                        {capability.examples.map((example, i) => (
+                          <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                            {example}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="space-y-2 text-sm text-text-secondary">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-success" />
-                        {plan.sources} data sources
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-success" />
-                        {plan.dashboards} dashboards
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="mt-12">
-              <Link href="/contact"><Button size="lg">Start Your Free Trial</Button></Link>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* How It Works */}
+            <section className="py-24 bg-gradient-to-b from-transparent to-green-500/5">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white text-center mb-16">
+                  How It Works
+                </h2>
+                <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                  {[
+                    {title: 'Connect', desc: 'Link your CRM, accounting, and other tools'},
+                    {title: 'Configure', desc: 'Set thresholds and preferences'},
+                    {title: 'Act', desc: 'Receive insights and take action'}
+                  ].map((step, i) => (
+                    <div key={i} className="text-center p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-green-500/50 transition-all duration-300">
+                      <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6">
+                        {i + 1}
+                      </div>
+                      <h3 className="font-semibold text-white text-xl mb-2">{step.title}</h3>
+                      <p className="text-gray-400 text-sm">{step.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Pricing */}
+            <section className="py-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto text-center p-12 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-white/10">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">Pricing</h2>
+                  <p className="text-xl text-white mb-4"><span className="font-bold">AED 1,500/month</span> (up to 5 connected tools)</p>
+                  <p className="text-gray-300 mb-8">Unlimited dashboards • Real-time anomaly detection • Daily insights • Priority support</p>
+                  <Link href="/contact">
+                    <button className="group px-10 py-5 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105 mx-auto">
+                      Get Started
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </main>
+          <Footer />
+        </div>
+      </div>
     </>
   );
 }
