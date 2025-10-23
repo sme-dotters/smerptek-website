@@ -1,10 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Clock, DollarSign } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Clock, DollarSign, Target, Zap, Shield, TrendingUp } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
 
 export const metadata: Metadata = {
   title: 'Digital Transformation Services | SMERP TEK',
@@ -15,165 +14,174 @@ export const metadata: Metadata = {
 export default function SolutionsPage() {
   return (
     <>
-      <Navbar />
-      <main className="pt-24 pb-20">
-        {/* Hero */}
-        <section className="py-20 bg-gradient-subtle">
-          <div className="container-custom text-center">
-            <h1 className="text-h1 lg:text-display-lg font-bold text-text-primary mb-6">
-              Solutions designed for growth
-            </h1>
-            <p className="text-body-lg text-text-secondary max-w-3xl mx-auto mb-8">
-              We partner with startups and SMEs to modernize operations through integrated
-              consultancy packages—delivered in weeks, with clear milestones and measurable
-              outcomes.
-            </p>
-            <Link href="/contact">
-              <Button size="lg">
-                Discuss Your Needs
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
-          </div>
-        </section>
+      <div className="relative">
+        <div className="opacity-30">
+          <AnimatedBackground />
+        </div>
 
-        {/* Service Packages */}
-        <section className="py-20 lg:py-32">
-          <div className="container-custom">
-            <div className="text-center mb-16">
-              <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-                OUR SERVICES
-              </p>
-              <h2 className="text-h1 font-bold text-text-primary mb-4">
-                Consultancy packages that deliver
-              </h2>
-            </div>
+        <div className="relative z-10">
+          <Navbar />
+          <main className="pt-24 pb-20">
+            {/* Hero */}
+            <section className="py-20">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight">
+                  Solutions designed for <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">growth</span>
+                </h1>
+                <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+                  We partner with startups and SMEs to modernize operations through integrated
+                  consultancy packages—delivered in weeks, with clear milestones and measurable
+                  outcomes.
+                </p>
+                <Link href="/contact">
+                  <button className="group px-10 py-5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105 mx-auto">
+                    Discuss Your Needs
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </Link>
+              </div>
+            </section>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {servicePackages.map((service, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <CardTitle className="text-h3 mb-2">{service.name}</CardTitle>
-                        <div className="flex items-center gap-4 text-sm text-text-secondary">
+            {/* Service Packages */}
+            <section className="py-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                  <p className="text-sm font-semibold text-purple-400 uppercase tracking-wider mb-4">
+                    OUR SERVICES
+                  </p>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4">
+                    Consultancy packages that deliver
+                  </h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                  {servicePackages.map((service, index) => (
+                    <div key={index} className="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 hover:-translate-y-1">
+                      <div className="mb-6">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-6">
+                          <service.icon className="w-7 h-7 text-purple-400" />
+                        </div>
+                        <h3 className="text-2xl font-semibold text-white mb-3">{service.name}</h3>
+                        <div className="flex items-center gap-4 text-sm text-gray-300 mb-4">
                           <span className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
+                            <Clock className="w-4 h-4 text-purple-400" />
                             {service.duration}
                           </span>
                           <span className="flex items-center gap-1">
-                            <DollarSign className="w-4 h-4" />
+                            <DollarSign className="w-4 h-4 text-green-400" />
                             {service.price}
                           </span>
                         </div>
                       </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-4">
-                      <p className="font-semibold text-text-primary mb-2">What's included:</p>
-                      <ul className="space-y-2">
-                        {service.included.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                            <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="pt-4 border-t border-border-default">
-                      <p className="text-sm font-semibold text-text-primary mb-1">Outcome:</p>
-                      <p className="text-sm text-text-secondary">{service.outcome}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Sample Timeline */}
-        <section className="py-20 bg-bg-secondary">
-          <div className="container-custom">
-            <div className="text-center mb-16">
-              <h2 className="text-h1 font-bold text-text-primary mb-4">
-                What a typical engagement looks like
-              </h2>
-              <p className="text-body-lg text-text-secondary max-w-2xl mx-auto">
-                Timelines flex based on complexity. We provide milestone-based pricing and weekly
-                check-ins.
-              </p>
-            </div>
+                      <div className="mb-4">
+                        <p className="font-semibold text-white mb-3">What's included:</p>
+                        <ul className="space-y-2">
+                          {service.included.map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                              <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-            <div className="max-w-4xl mx-auto space-y-8">
-              {timeline.map((phase, index) => (
-                <div key={index} className="flex items-start gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-32 h-32 bg-gradient-hero rounded-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-text-inverse">{phase.weeks}</div>
-                        <div className="text-sm text-text-inverse/80">{phase.timeframe}</div>
+                      <div className="pt-4 border-t border-white/10">
+                        <p className="text-sm font-semibold text-white mb-2">Outcome:</p>
+                        <p className="text-sm text-gray-300">{service.outcome}</p>
                       </div>
                     </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-h3 font-bold text-text-primary mb-2">{phase.phase}</h3>
-                    <p className="text-text-secondary mb-4">{phase.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {phase.deliverables.map((deliverable, i) => (
-                        <span
-                          key={i}
-                          className="inline-flex items-center px-3 py-1 bg-success/10 text-success text-xs font-medium rounded-full"
-                        >
-                          {deliverable}
-                        </span>
-                      ))}
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Sample Timeline */}
+            <section className="py-24 bg-gradient-to-b from-transparent to-purple-500/5">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">
+                    What a typical engagement looks like
+                  </h2>
+                  <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    Timelines flex based on complexity. We provide milestone-based pricing and weekly
+                    check-ins.
+                  </p>
+                </div>
+
+                <div className="max-w-4xl mx-auto space-y-8">
+                  {timeline.map((phase, index) => (
+                    <div key={index} className="flex flex-col sm:flex-row items-start gap-6 p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300">
+                      <div className="flex-shrink-0">
+                        <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">{phase.weeks}</div>
+                            <div className="text-xs text-white/80">{phase.timeframe}</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-white mb-3">{phase.phase}</h3>
+                        <p className="text-gray-300 mb-4 leading-relaxed">{phase.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {phase.deliverables.map((deliverable, i) => (
+                            <span
+                              key={i}
+                              className="inline-flex items-center px-3 py-1 bg-green-500/10 text-green-400 text-xs font-medium rounded-full border border-green-500/20"
+                            >
+                              {deliverable}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+              </div>
+            </section>
 
-        {/* Why Choose SMERP TEK */}
-        <section className="py-20 lg:py-32">
-          <div className="container-custom">
-            <h2 className="text-h1 font-bold text-text-primary text-center mb-12">
-              Why choose SMERP TEK
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {whyChoose.map((reason, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <reason.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-h4 font-bold text-text-primary mb-2">{reason.title}</h3>
-                  <p className="text-sm text-text-secondary">{reason.description}</p>
+            {/* Why Choose SMERP TEK */}
+            <section className="py-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white text-center mb-16">
+                  Why choose SMERP TEK
+                </h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                  {whyChoose.map((reason, index) => (
+                    <div key={index} className="text-center p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <reason.icon className="w-8 h-8 text-purple-400" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-3">{reason.title}</h3>
+                      <p className="text-sm text-gray-300 leading-relaxed">{reason.description}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+              </div>
+            </section>
 
-        {/* CTA */}
-        <section className="py-20 bg-gradient-dark text-text-inverse">
-          <div className="container-custom text-center">
-            <h2 className="text-h1 font-bold mb-6">Let's map your roadmap</h2>
-            <p className="text-body-lg text-text-inverse/90 mb-8 max-w-2xl mx-auto">
-              Schedule a free 30-minute strategy call to discuss your challenges and explore how we
-              can help.
-            </p>
-            <Link href="/contact">
-              <Button size="lg" className="bg-accent text-text-primary hover:bg-accent-hover">
-                Schedule a Strategy Call
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
-          </div>
-        </section>
-      </main>
-      <Footer />
+            {/* CTA */}
+            <section className="py-24">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto text-center p-12 rounded-2xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-white/10">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">Let's map your roadmap</h2>
+                  <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Schedule a free 30-minute strategy call to discuss your challenges and explore how we
+                    can help.
+                  </p>
+                  <Link href="/contact">
+                    <button className="group px-10 py-5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105 mx-auto">
+                      Schedule a Strategy Call
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </main>
+          <Footer />
+        </div>
+      </div>
     </>
   );
 }
@@ -182,6 +190,7 @@ export default function SolutionsPage() {
 const servicePackages = [
   {
     name: 'Assess — Digital Transformation Audit',
+    icon: Target,
     duration: '2 weeks',
     price: 'From AED 15,000',
     included: [
@@ -194,6 +203,7 @@ const servicePackages = [
   },
   {
     name: 'Integrate — System Integration & Cloud Migration',
+    icon: TrendingUp,
     duration: '2–4 weeks',
     price: 'From AED 30,000',
     included: [
@@ -206,6 +216,7 @@ const servicePackages = [
   },
   {
     name: 'Automate — Intelligent Automation Deployment',
+    icon: Zap,
     duration: '2–6 weeks',
     price: 'From AED 25,000',
     included: [
@@ -218,6 +229,7 @@ const servicePackages = [
   },
   {
     name: 'Secure — Cybersecurity Assessment & Hardening',
+    icon: Shield,
     duration: 'Parallel or standalone',
     price: 'From AED 20,000',
     included: [
