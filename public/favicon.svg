@@ -1,0 +1,58 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Multi-color gradient like Vite -->
+    <linearGradient id="s-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="s-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff00e5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b00;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="64" height="64" rx="12" fill="#0a0e1a"/>
+
+  <!-- Stylized spiral S like Vite's lightning -->
+  <g filter="url(#glow)">
+    <!-- Top part of S (cyan to purple) -->
+    <path d="M 42 18 C 48 18 52 22 52 28 C 52 32 50 34 46 36 L 36 36"
+          stroke="url(#s-gradient-1)"
+          stroke-width="6"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <!-- Middle connecting spiral -->
+    <path d="M 36 36 C 32 36 28 34 28 30 C 28 28 29 27 32 27 C 35 27 36 28 36 30"
+          stroke="url(#s-gradient-2)"
+          stroke-width="6"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          opacity="0.9"/>
+
+    <!-- Bottom part of S (magenta to orange) -->
+    <path d="M 28 28 L 18 28 C 12 28 8 32 8 38 C 8 44 12 48 18 48 L 38 48 C 42 48 44 46 44 42"
+          stroke="url(#s-gradient-2)"
+          stroke-width="6"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Accent dots for energy -->
+  <circle cx="50" cy="20" r="2.5" fill="#00d4ff" opacity="0.9"/>
+  <circle cx="14" cy="38" r="2.5" fill="#ff6b00" opacity="0.9"/>
+</svg>

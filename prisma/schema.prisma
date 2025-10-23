@@ -1,0 +1,169 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Page {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  content     String    @db.Text
+  excerpt     String?
+  seoTitle    String?
+  seoDescription String?
+  seoKeywords String?
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([published])
+}
+
+model BlogPost {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  excerpt         String
+  content         String    @db.Text
+  featuredImage   String?
+  author          String
+  category        String
+  tags            String[]
+  readTime        Int?
+  seoTitle        String?
+  seoDescription  String?
+  published       Boolean   @default(false)
+  publishedAt     DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([category])
+  @@index([published])
+}
+
+model Product {
+  id           String   @id @default(cuid())
+  name         String
+  slug         String   @unique
+  description  String   @db.Text
+  tagline      String?
+  icon         String?
+  features     Json     // Array of feature objects
+  useCases     String[]
+  integrations String[]
+  startingPrice Float?
+  ctaLabel     String?
+  ctaUrl       String?
+  seoTitle     String?
+  seoDescription String?
+  active       Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([slug])
+  @@index([active])
+}
+
+model Guide {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String   @db.Text
+  category    String
+  format      String   // PDF, Google Doc, Excel, etc.
+  fileUrl     String
+  thumbnail   String?
+  downloads   Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([slug])
+  @@index([category])
+}
+
+model Testimonial {
+  id         String   @id @default(cuid())
+  authorName String
+  role       String?
+  company    String?
+  avatar     String?
+  quote      String   @db.Text
+  rating     Int      @default(5)
+  product    String?
+  featured   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([featured])
+  @@index([product])
+}
+
+model FAQ {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String   @db.Text
+  category  String
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+  @@index([published])
+}
+
+model PricingPlan {
+  id           String   @id @default(cuid())
+  name         String
+  slug         String   @unique
+  tagline      String?
+  priceMonthly Float
+  priceAnnual  Float?
+  features     String[] // Array of feature strings
+  addOns       Json?    // Array of add-on objects
+  recommended  Boolean  @default(false)
+  ctaLabel     String?
+  order        Int      @default(0)
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([slug])
+  @@index([active])
+}
+
+model FormSubmission {
+  id         String   @id @default(cuid())
+  type       String   // contact, demo, newsletter, download
+  data       Json     // Form data as JSON
+  email      String
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  @@index([type])
+  @@index([read])
+  @@index([email])
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // Bcrypt hashed
+  name      String?
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+}
