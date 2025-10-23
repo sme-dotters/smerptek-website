@@ -7,7 +7,7 @@ interface FeatureCardProps {
   icon: ReactNode;
   title: string;
   description: string;
-  glowColor?: 'cyan' | 'magenta' | 'violet' | 'orange' | 'bloom';
+  glowColor?: 'purple' | 'magenta' | 'blue' | 'cyan' | 'brand';
   className?: string;
 }
 
@@ -15,30 +15,38 @@ export function FeatureCard({
   icon,
   title,
   description,
-  glowColor = 'bloom',
+  glowColor = 'brand',
   className = '',
 }: FeatureCardProps) {
   const glowClasses = {
-    cyan: 'hover:shadow-glow-cyan',
+    purple: 'hover:shadow-glow-purple',
     magenta: 'hover:shadow-glow-magenta',
-    violet: 'hover:shadow-glow-purple',
-    orange: 'hover:shadow-glow-orange',
-    bloom: 'hover-glow-bloom',
+    blue: 'hover:shadow-glow-blue',
+    cyan: 'hover:shadow-glow-cyan',
+    brand: 'hover:shadow-glow-purple',
   };
 
   const borderGlowClasses = {
-    cyan: 'hover:border-cyan',
-    magenta: 'hover:border-magenta',
-    violet: 'hover:border-violet',
-    orange: 'hover:border-orange',
-    bloom: 'hover:border-primary',
+    purple: 'hover:border-brand-purple',
+    magenta: 'hover:border-brand-magenta',
+    blue: 'hover:border-brand-blue',
+    cyan: 'hover:border-brand-cyan',
+    brand: 'hover:border-brand-purple',
+  };
+
+  const iconGradients = {
+    purple: 'bg-gradient-purple-magenta',
+    magenta: 'bg-gradient-purple-magenta',
+    blue: 'bg-gradient-blue-cyan',
+    cyan: 'bg-gradient-blue-cyan',
+    brand: 'bg-gradient-brand',
   };
 
   return (
     <motion.div
       className={`
         relative group
-        bg-bg-surface border border-border-default rounded-xl p-8
+        bg-bg-secondary border border-border-default rounded-2xl p-6 sm:p-8
         transition-all duration-300 ease-in-out
         ${glowClasses[glowColor]}
         ${borderGlowClasses[glowColor]}
@@ -51,35 +59,35 @@ export function FeatureCard({
       whileHover={{ y: -8, scale: 1.02 }}
     >
       {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-card opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-card opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       {/* Content */}
       <div className="relative z-10">
         {/* Icon */}
         <motion.div
-          className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-bloom"
+          className={`mb-4 sm:mb-6 inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl ${iconGradients[glowColor]} shadow-lg`}
           whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-white text-3xl">
+          <div className="text-white text-2xl sm:text-3xl">
             {icon}
           </div>
         </motion.div>
 
         {/* Title */}
-        <h3 className="text-2xl font-heading font-bold mb-4 text-text-primary group-hover:text-gradient-bloom transition-all duration-300">
+        <h3 className="text-lg sm:text-xl lg:text-2xl font-heading font-bold mb-3 sm:mb-4 text-text-primary group-hover:text-brand-purple transition-all duration-300">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors duration-300">
+        <p className="text-sm sm:text-base text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors duration-300">
           {description}
         </p>
       </div>
 
       {/* Corner accent */}
-      <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-xl">
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-bloom opacity-0 group-hover:opacity-20 transition-opacity duration-300 transform rotate-45 translate-x-8 -translate-y-8" />
+      <div className="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 overflow-hidden rounded-tr-2xl">
+        <div className={`absolute top-0 right-0 w-full h-full ${iconGradients[glowColor]} opacity-0 group-hover:opacity-20 transition-opacity duration-300 transform rotate-45 translate-x-8 -translate-y-8`} />
       </div>
     </motion.div>
   );
@@ -90,15 +98,23 @@ export function FeatureCardCompact({
   icon,
   title,
   description,
-  glowColor = 'cyan',
+  glowColor = 'purple',
   className = '',
 }: FeatureCardProps) {
+  const iconGradients = {
+    purple: 'bg-gradient-purple-magenta',
+    magenta: 'bg-gradient-purple-magenta',
+    blue: 'bg-gradient-blue-cyan',
+    cyan: 'bg-gradient-blue-cyan',
+    brand: 'bg-gradient-brand',
+  };
+
   return (
     <motion.div
       className={`
-        flex items-start gap-4 p-6
-        bg-bg-surface border border-border-subtle rounded-lg
-        hover:border-${glowColor} hover:shadow-glow-${glowColor}
+        flex items-start gap-3 sm:gap-4 p-4 sm:p-6
+        bg-bg-secondary border border-border-subtle rounded-xl
+        hover:border-brand-${glowColor} hover:shadow-glow-${glowColor}
         transition-all duration-300
         ${className}
       `}
@@ -109,16 +125,16 @@ export function FeatureCardCompact({
       whileHover={{ x: 8 }}
     >
       {/* Icon */}
-      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-bloom flex items-center justify-center text-white text-xl">
+      <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg ${iconGradients[glowColor]} flex items-center justify-center text-white text-lg sm:text-xl shadow-lg`}>
         {icon}
       </div>
 
       {/* Content */}
       <div className="flex-1 min-w-0">
-        <h4 className="text-lg font-heading font-semibold mb-2 text-text-primary">
+        <h4 className="text-base sm:text-lg font-heading font-semibold mb-1 sm:mb-2 text-text-primary">
           {title}
         </h4>
-        <p className="text-sm text-text-secondary leading-relaxed">
+        <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
           {description}
         </p>
       </div>
@@ -130,13 +146,21 @@ export function FeatureCardCompact({
 export function FeatureIcon({
   icon,
   title,
-  glowColor = 'bloom',
+  glowColor = 'brand',
   className = '',
 }: Omit<FeatureCardProps, 'description'>) {
+  const iconGradients = {
+    purple: 'bg-gradient-purple-magenta',
+    magenta: 'bg-gradient-purple-magenta',
+    blue: 'bg-gradient-blue-cyan',
+    cyan: 'bg-gradient-blue-cyan',
+    brand: 'bg-gradient-brand',
+  };
+
   return (
     <motion.div
       className={`
-        flex flex-col items-center text-center p-6
+        flex flex-col items-center text-center p-4 sm:p-6
         ${className}
       `}
       initial={{ opacity: 0, scale: 0.8 }}
@@ -148,9 +172,8 @@ export function FeatureIcon({
       {/* Icon with glow */}
       <motion.div
         className={`
-          w-20 h-20 rounded-xl bg-gradient-bloom
-          flex items-center justify-center text-white text-4xl mb-4
-          glow-${glowColor}
+          w-16 h-16 sm:w-20 sm:h-20 rounded-xl ${iconGradients[glowColor]}
+          flex items-center justify-center text-white text-3xl sm:text-4xl mb-3 sm:mb-4 shadow-lg
         `}
         whileHover={{ rotate: 360 }}
         transition={{ duration: 0.6 }}
@@ -159,7 +182,7 @@ export function FeatureIcon({
       </motion.div>
 
       {/* Title */}
-      <h4 className="text-lg font-heading font-semibold text-text-primary">
+      <h4 className="text-base sm:text-lg font-heading font-semibold text-text-primary">
         {title}
       </h4>
     </motion.div>

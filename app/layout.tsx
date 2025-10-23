@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   publisher: 'SMERP TEK',
   metadataBase: new URL('https://www.smerptek.com'),
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
   openGraph: {
     type: 'website',
