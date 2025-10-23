@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import '../styles/globals.css';
+import { JsonLd } from '@/components/schema/JsonLd';
+import { getOrganizationSchema } from '@/lib/schema/organization';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -73,6 +75,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <JsonLd data={getOrganizationSchema()} />
+      </head>
       <body className="font-body bg-dark-500 text-white antialiased overflow-x-hidden">{children}</body>
     </html>
   );

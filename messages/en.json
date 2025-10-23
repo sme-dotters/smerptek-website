@@ -1,0 +1,55 @@
+{
+  "common": {
+    "siteName": "SMERP TEK",
+    "tagline": "Modernize Digital Operations",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "requestDemo": "Request Demo"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "solutions": "Solutions",
+    "pricing": "Pricing",
+    "resources": "Resources",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "products": {
+    "edu": {
+      "name": "SMERP EDU",
+      "tagline": "Education Management System",
+      "description": "Comprehensive ERP solution for educational institutions"
+    },
+    "crew": {
+      "name": "SMERPS CREW",
+      "tagline": "Workforce Management",
+      "description": "Advanced attendance and workforce management platform"
+    },
+    "automate": {
+      "name": "SMERP Automate",
+      "tagline": "Business Automation",
+      "description": "AI-powered workflow automation for modern businesses"
+    },
+    "analytics": {
+      "name": "SMERPS Analytics",
+      "tagline": "Business Intelligence",
+      "description": "Transform data into actionable insights"
+    }
+  },
+  "footer": {
+    "products": "Products",
+    "company": "Company",
+    "legal": "Legal",
+    "resources": "Resources",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy",
+    "dpa": "Data Processing Addendum",
+    "security": "Security",
+    "accessibility": "Accessibility",
+    "copyright": "© 2025 SMERP TEK. All rights reserved."
+  }
+}
