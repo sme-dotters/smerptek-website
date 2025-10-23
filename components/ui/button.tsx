@@ -3,19 +3,19 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden group',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden group',
   {
     variants: {
       variant: {
         primary:
-          'bg-gradient-cyan-magenta text-text-inverse hover:shadow-glow-cyan hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700',
+          'bg-gradient-accent text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98]',
         secondary:
-          'bg-bg-surface text-primary border border-primary/30 hover:bg-primary/10 hover:border-primary hover:shadow-glow-cyan',
+          'bg-bg-surface/50 text-text-primary border border-border-steel hover:bg-bg-surface hover:border-accent hover:shadow-glow backdrop-blur-sm',
         accent:
-          'bg-gradient-purple-orange text-text-inverse hover:shadow-glow-magenta hover:scale-[1.02] active:scale-[0.98]',
-        ghost: 'hover:bg-bg-surface/50 text-text-primary hover:text-primary',
+          'bg-gradient-accent text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98]',
+        ghost: 'hover:bg-bg-surface/50 text-text-primary hover:text-accent',
         danger:
-          'bg-error text-text-inverse hover:bg-error/90 shadow-sm hover:shadow-md',
+          'bg-error text-white hover:bg-error/90 shadow-chrome hover:shadow-chrome-lg',
       },
       size: {
         sm: 'h-9 px-4 text-xs',
