@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import '../styles/globals.css';
 
 const inter = Inter({
@@ -8,19 +8,25 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
+});
+
 export const metadata: Metadata = {
   title: {
-    default: 'SMERP TEK | Modernize Digital Operations for Startups & SMEs',
+    default: 'SMERP TEK | Digital Transformation & AI Automation UAE',
     template: '%s | SMERP TEK',
   },
   description:
-    'Transform scattered systems into intelligent workflows. SMERP TEK offers consultancy, AI automation, and software for ambitious teams in the UAE and GCC.',
+    'Experience digital luxury. Transform your business with AI-powered automation and intelligent workflows. Leading innovation partner in UAE & GCC.',
   keywords: [
     'digital transformation UAE',
-    'ERP software',
-    'AI automation',
-    'system integration',
-    'SME technology',
+    'AI automation Dubai',
+    'luxury tech solutions',
+    'intelligent workflows',
+    'SME technology GCC',
   ],
   authors: [{ name: 'SMERP TEK' }],
   creator: 'SMERP TEK',
@@ -35,16 +41,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.smerptek.com',
-    title: 'SMERP TEK | Modernize Digital Operations',
+    title: 'SMERP TEK | Digital Transformation & AI Automation',
     description:
-      'Transform scattered systems into intelligent workflows. Consultancy + AI automation + software for ambitious teams.',
+      'Experience digital luxury. Transform your business with AI-powered automation.',
     siteName: 'SMERP TEK',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SMERP TEK | Modernize Digital Operations',
+    title: 'SMERP TEK | Digital Transformation',
     description:
-      'Transform scattered systems into intelligent workflows. Consultancy + AI automation + software.',
+      'Experience digital luxury. AI-powered automation for ambitious teams.',
     creator: '@smerptek',
   },
   robots: {
@@ -66,8 +72,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="bg-bg-primary text-text-primary antialiased">{children}</body>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body className="font-body bg-dark-500 text-white antialiased overflow-x-hidden">{children}</body>
     </html>
   );
 }

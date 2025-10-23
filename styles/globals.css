@@ -3,21 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-border-chrome;
-  }
-
   body {
-    @apply bg-bg-primary text-text-primary font-body antialiased;
+    @apply font-body bg-dark-500 text-white antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold;
+    @apply font-display font-bold;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
   }
 
   /* Focus styles */
   *:focus-visible {
-    @apply outline-none ring-2 ring-accent ring-offset-4;
+    @apply outline-none ring-2 ring-neon-purple ring-offset-2 ring-offset-dark-500;
   }
 
   /* Reduced motion */

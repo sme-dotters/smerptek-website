@@ -3,15 +3,13 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { Button } from '../ui/button';
-import { cn } from '@/lib/utils';
-import { Logo, LogoMark } from '../brand/logo';
+import { LogoMark } from '../brand/logo';
+import Image from 'next/image';
 
 const navLinks = [
   { href: '/solutions', label: 'Solutions' },
   { href: '/products', label: 'Products' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/resources/blog', label: 'Resources' },
   { href: '/about', label: 'About' },
 ];
 
@@ -21,7 +19,7 @@ export function Navbar() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -29,20 +27,28 @@ export function Navbar() {
 
   return (
     <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-bg-primary/90 backdrop-blur-xl shadow-chrome-lg border-b border-border-chrome'
+          ? 'bg-dark-400/80 backdrop-blur-2xl shadow-luxury'
           : 'bg-transparent'
-      )}
+      }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <LogoMark size={40} className="transition-transform duration-300 group-hover:scale-110" />
-            <span className="font-heading font-bold text-xl text-text-primary group-hover:text-accent transition-colors duration-300">
-              SMERP TEK
+          <Link href="/" className="flex items-center space-x-3 group relative">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-purple-pink rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity" />
+              <Image
+                src="/logo.png"
+                alt="SMERP TEK"
+                width={50}
+                height={50}
+                className="relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+            <span className="font-display font-bold text-2xl text-white">
+              SMERP <span className="bg-gradient-luxury bg-clip-text text-transparent">TEK</span>
             </span>
           </Link>
 
@@ -52,34 +58,33 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-text-secondary hover:text-accent transition-colors duration-200 text-sm font-medium relative group"
+                className="text-white/80 hover:text-white font-medium transition-colors duration-300 relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-purple-pink group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex">
             <Link href="/contact">
-              <Button className="bg-gradient-accent text-white shadow-glow hover:shadow-glow-lg">
-                Book a Demo
-              </Button>
+              <button className="relative px-8 py-3 font-bold rounded-xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-purple-pink" />
+                <span className="relative z-10 text-white">Get Started</span>
+              </button>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-bg-surface/50 transition-colors"
+            className="lg:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-text-primary" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-text-primary" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
@@ -87,25 +92,24 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-bg-primary/95 backdrop-blur-xl border-t border-border-chrome shadow-chrome-lg">
-          <div className="container mx-auto px-4 sm:px-6 py-6 space-y-2">
+        <div className="lg:hidden bg-dark-400/95 backdrop-blur-2xl border-t border-white/10">
+          <div className="container mx-auto px-4 sm:px-6 py-6 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-3 px-4 text-text-secondary hover:text-accent hover:bg-bg-surface/50 rounded-lg transition-all duration-200"
+                className="block py-3 text-white/80 hover:text-white transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full bg-gradient-accent text-white shadow-glow hover:shadow-glow-lg">
-                  Book a Demo
-                </Button>
-              </Link>
-            </div>
+            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+              <button className="w-full relative px-8 py-4 font-bold rounded-xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-purple-pink" />
+                <span className="relative z-10 text-white">Get Started</span>
+              </button>
+            </Link>
           </div>
         </div>
       )}
