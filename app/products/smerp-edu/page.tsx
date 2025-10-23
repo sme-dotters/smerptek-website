@@ -40,7 +40,7 @@ export default function SmerpEduPage() {
 
                   {/* CTA Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <Link href="DEMO_LINK_PLACEHOLDER">
+                    <Link href="https://edu.smerptek.com/">
                       <button className="group px-10 py-5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 flex items-center gap-2 hover:scale-105">
                         <Play className="w-5 h-5" />
                         Access Now
