@@ -167,3 +167,46 @@ model User {
 
   @@index([email])
 }
+
+model Service {
+  id           String   @id @default(cuid())
+  name         String
+  slug         String   @unique
+  description  String   @db.Text
+  duration     String?
+  price        String?
+  features     String[]
+  deliverables String[]
+  icon         String?
+  category     String   // consultancy, implementation, support
+  active       Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([slug])
+  @@index([category])
+  @@index([active])
+}
+
+model SiteSettings {
+  id              String   @id @default(cuid())
+  key             String   @unique
+  value           Json
+  description     String?
+  updatedAt       DateTime @updatedAt
+
+  @@index([key])
+}
+
+model Analytics {
+  id            String   @id @default(cuid())
+  date          DateTime @default(now())
+  pageViews     Int      @default(0)
+  uniqueVisitors Int     @default(0)
+  formSubmissions Int    @default(0)
+  topPages      Json?    // Array of page stats
+  referrers     Json?    // Array of referrer stats
+
+  @@index([date])
+}

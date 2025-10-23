@@ -18,53 +18,85 @@ interface FormSubmission {
 
 export default function FormsManagement() {
   const router = useRouter();
-  const [submissions, setSubmissions] = useState<FormSubmission[]>([
-    {
-      id: '1',
-      name: 'John Smith',
-      email: 'john.smith@example.com',
-      phone: '+971 50 123 4567',
-      company: 'Tech Corp',
-      message: 'Interested in SMERP EDU for our organization. Can you provide a demo?',
-      submittedAt: '2025-01-15 14:30',
-      status: 'new'
-    },
-    {
-      id: '2',
-      name: 'Sarah Johnson',
-      email: 'sarah.j@business.com',
-      phone: '+971 55 987 6543',
-      company: 'Business Solutions LLC',
-      message: 'Looking for consultancy services to digitize our workflows.',
-      submittedAt: '2025-01-14 10:15',
-      status: 'read'
-    }
-  ]);
-
+  const [submissions, setSubmissions] = useState<FormSubmission[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedSubmission, setSelectedSubmission] = useState<FormSubmission | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
     if (!token) {
       router.push('/smerptekdev');
+      return;
     }
+    fetchSubmissions();
   }, [router]);
 
-  const handleViewSubmission = (submission: FormSubmission) => {
-    setSelectedSubmission(submission);
-    if (submission.status === 'new') {
-      setSubmissions(submissions.map(s =>
-        s.id === submission.id ? { ...s, status: 'read' as const } : s
-      ));
+  const fetchSubmissions = async () => {
+    try {
+      const token = localStorage.getItem('adminToken');
+      const response = await fetch('/api/admin/forms', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const data = await response.json();
+      if (response.ok) {
+        // Map database submissions to UI format
+        const mapped = (data.submissions || []).map((s: any) => ({
+          id: s.id,
+          name: s.data.name || 'N/A',
+          email: s.email,
+          phone: s.data.phone,
+          company: s.data.company,
+          message: s.data.message || '',
+          submittedAt: new Date(s.createdAt).toLocaleString(),
+          status: s.read ? 'read' : 'new'
+        }));
+        setSubmissions(mapped);
+      }
+    } catch (error) {
+      console.error('Failed to fetch submissions:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleDeleteSubmission = (id: string) => {
-    if (confirm('Are you sure you want to delete this submission?')) {
-      setSubmissions(submissions.filter(s => s.id !== id));
-      if (selectedSubmission?.id === id) {
-        setSelectedSubmission(null);
+  const handleViewSubmission = async (submission: FormSubmission) => {
+    setSelectedSubmission(submission);
+    if (submission.status === 'new') {
+      try {
+        const token = localStorage.getItem('adminToken');
+        await fetch('/api/admin/forms', {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: submission.id, read: true })
+        });
+        setSubmissions(submissions.map(s =>
+          s.id === submission.id ? { ...s, status: 'read' as const } : s
+        ));
+      } catch (error) {
+        console.error('Failed to mark as read:', error);
       }
+    }
+  };
+
+  const handleDeleteSubmission = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this submission?')) return;
+    try {
+      const token = localStorage.getItem('adminToken');
+      const response = await fetch(`/api/admin/forms?id=${id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (response.ok) {
+        setSubmissions(submissions.filter(s => s.id !== id));
+        if (selectedSubmission?.id === id) {
+          setSelectedSubmission(null);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to delete submission:', error);
     }
   };
 
@@ -73,6 +105,10 @@ export default function FormsManagement() {
       s.id === id ? { ...s, status: 'responded' as const } : s
     ));
   };
+
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center"><div className="text-white">Loading...</div></div>;
+  }
 
   const newCount = submissions.filter(s => s.status === 'new').length;
 
