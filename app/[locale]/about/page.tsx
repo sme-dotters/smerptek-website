@@ -91,6 +91,88 @@ export default function AboutPage() {
               </div>
             </section>
 
+            {/* Technology Infrastructure */}
+            <section className="py-20 lg:py-32 bg-gradient-to-b from-transparent to-purple-500/5">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto">
+                  <div className="text-center mb-12">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">
+                      Built on Enterprise Technology
+                    </h2>
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                      We leverage the same cloud infrastructure trusted by Fortune 500 companies to deliver
+                      enterprise-grade performance, security, and reliability.
+                    </p>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-10">
+                    <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20">
+                      <h3 className="text-xl font-bold text-white mb-4">Modern Cloud Architecture</h3>
+                      <ul className="space-y-3 text-gray-300">
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span><strong>Cloudflare CDN:</strong> Global edge computing with DDoS protection</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span><strong>Vercel:</strong> Lightning-fast frontend deployment</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span><strong>Railway/Render:</strong> Scalable backend services</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span><strong>Redis:</strong> High-performance data caching</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="p-8 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+                      <h3 className="text-xl font-bold text-white mb-4">Enterprise Services</h3>
+                      <ul className="space-y-3 text-gray-300">
+                        <li className="flex items-start gap-2">
+                          <span className="text-purple-400 mt-1">•</span>
+                          <span><strong>Cloudinary:</strong> Intelligent media optimization</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-purple-400 mt-1">•</span>
+                          <span><strong>Resend:</strong> Reliable transactional emails</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-purple-400 mt-1">•</span>
+                          <span><strong>Twilio:</strong> SMS and communications</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-purple-400 mt-1">•</span>
+                          <span><strong>SOC 2 & ISO 27001:</strong> Certified partners</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-3xl font-bold text-blue-400 mb-2">&lt;100ms</div>
+                      <div className="text-xs text-gray-400">Response Time</div>
+                    </div>
+                    <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-3xl font-bold text-green-400 mb-2">99.9%</div>
+                      <div className="text-xs text-gray-400">Uptime SLA</div>
+                    </div>
+                    <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-3xl font-bold text-purple-400 mb-2">250+</div>
+                      <div className="text-xs text-gray-400">Edge Locations</div>
+                    </div>
+                    <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-3xl font-bold text-orange-400 mb-2">SOC 2</div>
+                      <div className="text-xs text-gray-400">Type II Certified</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Careers */}
             <section className="py-20 bg-gradient-to-b from-transparent to-purple-500/5">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">

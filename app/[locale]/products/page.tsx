@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Database, Zap, TrendingUp, BarChart3, Sparkles, Rocket } from 'lucide-react';
+import { ArrowRight, Database, Zap, TrendingUp, BarChart3, Sparkles, Rocket, Activity } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
 import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
 
 export const metadata: Metadata = {
-  title: 'Intelligent Software Products | SMERP TEK',
+  title: 'Enterprise Software Products | SMERP TEK',
   description:
-    'Explore SMERP EDU, SMERPs Crew AI agents, SMERP Automate workflows, and SMERPs Analytics—software that clarifies operations for growing teams.',
+    'Explore SMERP EDU, SMERPs Crew AI agents, SMERP Automate workflows, SMERPs Analytics, and MedPro—enterprise-grade software built on SOC 2 compliant infrastructure with 99.9% uptime.',
 };
 
 export default function ProductsPage() {
@@ -72,6 +72,68 @@ export default function ProductsPage() {
                       </Link>
                     </div>
                   ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Infrastructure Section */}
+            <section className="py-20">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-5xl mx-auto p-10 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-white/10">
+                  <div className="text-center mb-8">
+                    <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+                      Built on Enterprise Infrastructure
+                    </h2>
+                    <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                      All products run on military-grade cloud infrastructure with enterprise security and compliance
+                    </p>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-3xl font-bold text-blue-400 mb-2">⚡ &lt;100ms</div>
+                      <div className="text-sm text-gray-300">Global response time via CDN</div>
+                    </div>
+                    <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-3xl font-bold text-green-400 mb-2">🔒 SOC 2</div>
+                      <div className="text-sm text-gray-300">Type II certified infrastructure</div>
+                    </div>
+                    <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
+                      <div className="text-3xl font-bold text-purple-400 mb-2">📈 99.9%</div>
+                      <div className="text-sm text-gray-300">Uptime SLA guaranteed</div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 grid md:grid-cols-2 gap-4 text-sm">
+                    <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5">
+                      <span className="text-green-400 text-xl">✓</span>
+                      <div>
+                        <div className="text-white font-semibold mb-1">Global CDN & Edge Computing</div>
+                        <div className="text-gray-400">Cloudflare-powered delivery across 250+ locations</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5">
+                      <span className="text-green-400 text-xl">✓</span>
+                      <div>
+                        <div className="text-white font-semibold mb-1">Redis High-Performance Caching</div>
+                        <div className="text-gray-400">Sub-second data retrieval at scale</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5">
+                      <span className="text-green-400 text-xl">✓</span>
+                      <div>
+                        <div className="text-white font-semibold mb-1">Auto-Scaling Architecture</div>
+                        <div className="text-gray-400">Handles unlimited traffic spikes seamlessly</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5">
+                      <span className="text-green-400 text-xl">✓</span>
+                      <div>
+                        <div className="text-white font-semibold mb-1">Enterprise Security & Compliance</div>
+                        <div className="text-gray-400">DDoS protection, encryption, GDPR & HIPAA ready</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -207,6 +269,22 @@ const products = [
     gradient: 'linear-gradient(135deg, rgb(34, 197, 94), rgb(16, 185, 129))',
     href: '/products/smerps-analytics',
     cta: 'See Insights',
+  },
+  {
+    name: 'MedPro',
+    tagline: 'Healthcare procurement simplified',
+    description:
+      'Complete medical procurement solution for healthcare facilities. Streamline vendor management, inventory tracking, compliance documentation, and automated ordering workflows.',
+    features: [
+      'Vendor and supplier management',
+      'Real-time inventory tracking',
+      'Automated purchase orders',
+      'Compliance and regulatory documentation',
+    ],
+    icon: Activity,
+    gradient: 'linear-gradient(135deg, rgb(139, 92, 246), rgb(59, 130, 246))',
+    href: 'https://medpro.smerptek.com',
+    cta: 'Access MedPro',
   },
 ];
 

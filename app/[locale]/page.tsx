@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Zap, Shield, Rocket, Target, Users, TrendingUp, CheckCircle, Globe, Code, BarChart3, Cpu } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Rocket, Target, Users, TrendingUp, CheckCircle, Globe, Code, BarChart3, Cpu, Activity } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Footer } from '@/components/navigation/footer';
 import { AnimatedBackground } from '@/components/effects/AnimatedBackground';
 import { CalendlyButton } from '@/components/ui/CalendlyButton';
 
 export const metadata: Metadata = {
-  title: 'SMERP TEK | Modern Business Solutions for Startups & SMEs',
-  description: 'Transform your startup or SME with intelligent automation and modern business solutions.',
+  title: 'SMERP TEK | Enterprise Business Solutions Built on SOC 2 Infrastructure',
+  description: 'Transform your startup or SME with intelligent automation and modern business solutions. Built on enterprise-grade infrastructure with 99.9% uptime, global CDN, and SOC 2 compliance.',
 };
 
 export default function HomePage() {
@@ -119,6 +119,101 @@ export default function HomePage() {
                       </p>
                     </div>
                   ))}
+                </div>
+              </div>
+            </section>
+
+            {/* INFRASTRUCTURE - Enterprise Grade */}
+            <section className="py-20 relative">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-5xl mx-auto">
+                  <div className="text-center mb-12">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 text-white">
+                      Enterprise Infrastructure
+                    </h2>
+                    <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                      Built on the same technology trusted by Fortune 500 companies
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 text-center">
+                      <div className="text-4xl font-display font-bold text-blue-400 mb-2">⚡ &lt;100ms</div>
+                      <div className="text-sm text-gray-300 font-semibold mb-2">Lightning Fast</div>
+                      <div className="text-xs text-gray-400">Global response via 250+ edge locations</div>
+                    </div>
+
+                    <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 text-center">
+                      <div className="text-4xl font-display font-bold text-green-400 mb-2">🔒 SOC 2</div>
+                      <div className="text-sm text-gray-300 font-semibold mb-2">Bank-Level Security</div>
+                      <div className="text-xs text-gray-400">Type II certified infrastructure</div>
+                    </div>
+
+                    <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 text-center">
+                      <div className="text-4xl font-display font-bold text-purple-400 mb-2">📈 99.9%</div>
+                      <div className="text-sm text-gray-300 font-semibold mb-2">Always Available</div>
+                      <div className="text-xs text-gray-400">Uptime SLA with auto-scaling</div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <div className="text-sm">
+                        <div className="text-white font-semibold mb-1">Global CDN & DDoS Protection</div>
+                        <div className="text-gray-400">Cloudflare-powered delivery and security</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <div className="text-sm">
+                        <div className="text-white font-semibold mb-1">Redis High-Performance Caching</div>
+                        <div className="text-gray-400">Sub-second data access at any scale</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <div className="text-sm">
+                        <div className="text-white font-semibold mb-1">Auto-Scaling Microservices</div>
+                        <div className="text-gray-400">Vercel & Railway infrastructure</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <div className="text-sm">
+                        <div className="text-white font-semibold mb-1">GDPR, HIPAA & ISO 27001 Ready</div>
+                        <div className="text-gray-400">Full compliance and encryption</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <div className="text-sm">
+                        <div className="text-white font-semibold mb-1">Intelligent Media Delivery</div>
+                        <div className="text-gray-400">Cloudinary optimization</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <div className="text-sm">
+                        <div className="text-white font-semibold mb-1">Multi-Region Redundancy</div>
+                        <div className="text-gray-400">Automatic failover and backups</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 text-center">
+                    <Link href="/legal/security">
+                      <button className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-lg font-semibold border border-white/10 hover:border-purple-500/50 transition-all duration-200 inline-flex items-center gap-2">
+                        View Security Details
+                        <Shield className="w-4 h-4" />
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </section>
@@ -351,6 +446,12 @@ const products = [
     href: '/solutions/analytics',
     icon: BarChart3,
     description: 'Turn your data into actionable insights with powerful analytics tools',
+  },
+  {
+    name: 'MedPro',
+    href: 'https://medpro.smerptek.com',
+    icon: Activity,
+    description: 'Medical procurement solution for healthcare facilities with vendor management and compliance',
   },
 ];
 

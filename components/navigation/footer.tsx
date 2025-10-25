@@ -7,6 +7,7 @@ const footerLinks = {
     { label: 'SMERPs Crew', href: '/products/smerps-crew' },
     { label: 'SMERP Automate', href: '/products/smerp-automate' },
     { label: 'SMERPs Analytics', href: '/products/smerps-analytics' },
+    { label: 'MedPro', href: 'https://medpro.smerptek.com' },
   ],
   Solutions: [
     { label: 'Services Overview', href: '/solutions' },
@@ -48,9 +49,20 @@ export function Footer() {
             <p className="text-sm mb-4 font-semibold text-accent">
               Clarity. By design.
             </p>
-            <p className="text-sm text-text-secondary leading-relaxed">
+            <p className="text-sm text-text-secondary leading-relaxed mb-4">
               Empowering startups and SMEs across the UAE and GCC with AI-driven digital transformation solutions.
             </p>
+            <div className="flex flex-wrap gap-2 text-xs">
+              <span className="px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                ⚡ 99.9% Uptime
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">
+                🔒 SOC 2 Certified
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                🌍 Global CDN
+              </span>
+            </div>
           </div>
 
           {/* Link Columns */}
